@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<form class="box" method = "POST" action="/data_type" >
+	<select name="type">
+		<option value="video">Video</option>
+		<option value="webcam">webcam</option>
+	</select>
+<div>
+	<input type="submit" style="font-family: arial; font-size: 18px; text-transform: uppercase; width: 200px; height: 50px; border-radius: 80px; text-align: center; border:3px solid #009688; display: block; text-decoration: none; margin-left: 30px; margin-top: 70px ;  color: #009688;position: relative; overflow: hidden; background:transparent; transition: .3s; ">
+</div>
+</form>
+
+{% endblock %}

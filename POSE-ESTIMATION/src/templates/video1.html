@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>video1</title>
+	<style type="text/css">
+		.column{
+			float: left;
+			width: 40%;
+
+		}
+		.row{ float: right;
+		}
+	</style>
+</head>
+<body  bgcolor="#7E57C2">
+	<form>
+<div class="row">
+	<div class="column">
+	<h1 style="font-family: arial;font-size: 40px; margin-left: 180px; margin-top: 100px;">INPUT</h1 >
+  <video width="700" height="500" controls autoplay style="margin-left: -150px; margin-top: 10px">
+    <source src={{ url_for('static', filename=link) }} type="video/mp4">
+   
+    </div>
+    <div class="column">
+    <h1 style="font-family: arial;font-size: 40px; margin-left: 300px; margin-top: 100px;">OUTPUT</h1 >
+    <video width="700" height="500" controls autoplay style="margin-left: 40px; margin-top: 10px; ">
+    <source src={{ url_for('static', filename=out_link) }} type="video/mp4">
+   </div>
+   </div>
+
+
+</body>
+</html>

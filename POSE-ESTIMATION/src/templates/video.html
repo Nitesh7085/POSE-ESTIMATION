@@ -1,0 +1,21 @@
+{% extends 'base1.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<form  method = "POST" action="/video" >
+<div class="Wrapper"  >
+  <h1 class="Title">Drop your video path here</h1>
+  <div class="Input" >
+    <input type="text" id="input" class="Input-text" name="link">
+   <label for="input" class="Input-label">LINK</label>
+ </div>
+ <div>
+ 	<input type="submit" value="NEXT" style="font-family: arial; font-size: 18px; text-transform: uppercase; width: 200px; height: 50px; border-radius: 80px;text-align: center; border:3px solid black; display: block; text-decoration: none; margin:150px; margin-left: 300px; color: black; position: relative;
+  overflow: hidden; background:transparent; transition: .3s; ">
+</div>
+</div>
+</form>
+{% endblock %}
