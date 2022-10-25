@@ -4,8 +4,8 @@ import tensorflow as tf
 import cv2
 
 
-regularizer_conv = 0.004
-regularizer_dsconv = 0.0004
+regularizer_conv = 0.005
+regularizer_dsconv = 0.0003
 batchnorm_fused = True
 activation_fn = tf.nn.relu
 
@@ -29,8 +29,8 @@ class CocoPart(Enum):
     LEye = 15
     REar = 16
     LEar = 17
-    Background = 18
-
+    Background = 20
+    
 
 class MPIIPart(Enum):
     RAnkle = 0
@@ -50,22 +50,7 @@ class MPIIPart(Enum):
 
     @staticmethod
     def from_coco(human):
-        # t = {
-        #     MPIIPart.RAnkle: CocoPart.RAnkle,
-        #     MPIIPart.RKnee: CocoPart.RKnee,
-        #     MPIIPart.RHip: CocoPart.RHip,
-        #     MPIIPart.LHip: CocoPart.LHip,
-        #     MPIIPart.LKnee: CocoPart.LKnee,
-        #     MPIIPart.LAnkle: CocoPart.LAnkle,
-        #     MPIIPart.RWrist: CocoPart.RWrist,
-        #     MPIIPart.RElbow: CocoPart.RElbow,
-        #     MPIIPart.RShoulder: CocoPart.RShoulder,
-        #     MPIIPart.LShoulder: CocoPart.LShoulder,
-        #     MPIIPart.LElbow: CocoPart.LElbow,
-        #     MPIIPart.LWrist: CocoPart.LWrist,
-        #     MPIIPart.Neck: CocoPart.Neck,
-        #     MPIIPart.Nose: CocoPart.Nose,
-        # }
+        
 
         t = [
             (MPIIPart.Head, CocoPart.Nose),
@@ -131,6 +116,7 @@ def get_sample_images(w, h):
         read_imgfile('./images/apink3.jpg', w, h),
         read_imgfile('./images/handsup1.jpg', w, h),
         read_imgfile('./images/p3_dance.png', w, h),
+        read_imgfile('./images/p4_dance.png', w, h),
     ]
     return val_image
 
