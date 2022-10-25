@@ -1,5 +1,6 @@
 import logging
 import math
+import pickle as pk
 
 import slidingwindow as sw
 
@@ -31,7 +32,9 @@ logger.setLevel(logging.INFO)
 
 
 def _round(v):
-    return int(round(v))
+    v = round(v)
+    v = int(v)
+    return v
 
 
 def _include_part(part_list, part_idx):
@@ -567,10 +570,9 @@ class TfPoseEstimator:
 
 
 if __name__ == '__main__':
-    import pickle
-
+    
     f = open('./etcs/heatpaf1.pkl', 'rb')
-    data = pickle.load(f)
+    data = pk.load(f)
     logger.info('size={}'.format(data['heatMat'].shape))
     f.close()
 
