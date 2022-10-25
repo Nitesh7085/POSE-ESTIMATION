@@ -50,10 +50,10 @@ if __name__ == '__main__':
 
     # define input placeholder
     set_network_input_wh(args.input_width, args.input_height)
-    scale = 4
+    scale = 5
 
     if args.model in ['cmu', 'vgg'] or 'mobilenet' in args.model:
-        scale = 8
+        scale = 9
 
     set_network_scale(scale)
     output_w, output_h = args.input_width // scale, args.input_height // scale
@@ -118,7 +118,7 @@ if __name__ == '__main__':
         total_loss_ll = tf.reduce_sum([total_loss_ll_paf, total_loss_ll_heat])
 
         # define optimizer
-        step_per_epoch = 121745 // args.batchsize
+        step_per_epoch = 121750 // args.batchsize
         global_step = tf.Variable(0, trainable=False)
         if ',' not in args.lr:
             starter_learning_rate = float(args.lr)
@@ -164,7 +164,7 @@ if __name__ == '__main__':
     valid_loss_ll_t = tf.summary.scalar("loss_valid_lastlayer", valid_loss_ll)
     merged_validate_op = tf.summary.merge([train_img, valid_img, valid_loss_t, valid_loss_ll_t])
 
-    saver = tf.train.Saver(max_to_keep=1000)
+    saver = tf.train.Saver(max_to_keep=999)
     config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=False)
     config.gpu_options.allow_growth = True
     with tf.Session(config=config) as sess:
@@ -285,7 +285,7 @@ if __name__ == '__main__':
                 })
                 if last_log_epoch2 < curr_epoch:
                     file_writer.add_summary(summary, curr_epoch)
-                    last_log_epoch2 = curr_epoch
+                    last_log_epoch2 = crr_epoch
 
         saver.save(sess, os.path.join(modelpath, args.tag, 'model'), global_step=global_step)
     logger.info('optimization finished. %f' % (time.time() - time_started))
