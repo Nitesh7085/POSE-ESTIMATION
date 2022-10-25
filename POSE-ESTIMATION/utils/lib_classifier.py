@@ -45,7 +45,7 @@ if True:
 
 
 # -- Settings
-NUM_FEATURES_FROM_PCA = 50
+NUM_FEATURES_FROM_PCA = 60
 
 # -- Classes
 
@@ -109,7 +109,7 @@ class ClassifierOfflineTrain(object):
             DecisionTreeClassifier(max_depth=5),
             RandomForestClassifier(
                 max_depth=30, n_estimators=100, max_features="auto"),
-            MLPClassifier((20, 30, 40)),  # Neural Net
+            MLPClassifier((40, 50, 60)),  # Neural Net
             AdaBoostClassifier(),
             GaussianNB(),
             QuadraticDiscriminantAnalysis()]
@@ -199,7 +199,7 @@ class ClassifierOnlineTest(object):
 
         for i in range(-1, len(self.action_labels)):
 
-            FONT_SIZE = 0.7
+            FONT_SIZE = 0.9
             TXT_X = 20
             TXT_Y = 150 + i*30
             COLOR_INTENSITY = 255
